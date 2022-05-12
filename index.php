@@ -1,7 +1,17 @@
 <?php
+
+function sum_format(int $cost)
+{
+    $cost = ceil($cost);
+    if ($cost >= 1000) {
+        $cost = number_format($cost, 0, ".", " ");
+    }
+    return '<span class="lot__cost">' . $cost . '<b class="rub">₽</b></span>';
+}
+
 $is_auth = rand(0, 1);
 
-$user_name = ''; // укажите здесь ваше имя
+$user_name = 'Чел'; // укажите здесь ваше имя
 
 $categories = array("Доски и лыжи", "Крепления", "Ботинки", "Одежда",
 "Инструменты", "Разное");
@@ -96,7 +106,7 @@ $announcements = [
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая Цена</span>
-                            <span class="lot__cost"><?=$a['Cost1']?><b class="rub">р</b></span>
+                            <?=sum_format($a['Cost1']) ?>
                         </div>
                         <div class="lot__timer timer">
                             12:23
@@ -111,7 +121,7 @@ $announcements = [
 </div>
 
 <footer class="main-footer">
-    <nav class="nav">       
+    <nav class="nav">
         <ul class="nav__list container">
             <?php
             foreach($categories as $cat) {
