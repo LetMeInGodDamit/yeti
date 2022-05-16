@@ -1,5 +1,10 @@
 <?php
-
+function time_check(){
+$now = strtotime("now");
+$midnight = strtotime("17 May 2022 00:00:00");
+$difference = $midnight - $now;
+echo date("H:i", $difference);
+}
 function sum_format(int $cost)
 {
     $cost = ceil($cost);
@@ -109,7 +114,7 @@ $announcements = [
                             <?=sum_format($a['Cost1']) ?>
                         </div>
                         <div class="lot__timer timer">
-                            12:23
+                            <?time_check()?>
                         </div>
                     </div>
                 </div>
