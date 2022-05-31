@@ -8,7 +8,7 @@
     <link href="../css/normalize.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
 </head>
-<body>
+<body onload="start()">
 <div class="page-wrapper">
 
 <header class="main-header">
@@ -62,7 +62,7 @@
             <?php
             foreach($categories as $cat) {
                 ?><li class="nav__item">
-                <a href="pages/all-lots.html"><?=$cat?></a>
+                <a href="pages/all-lots.html"><?=$cat['Name']?></a>
             </li>
             <?php }
             ?>
